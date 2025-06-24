@@ -1,0 +1,53 @@
+logging:
+  level:
+    root: info
+    org:
+      apache: warn
+      springframework: warn
+
+  pattern:
+    console: '%clr([%thread] [%date{HH:mm:ss.SSS}]){faint} %clr(%2p) %clr(%-40.40logger{36}){cyan} %m%n%wex'
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        firstConsumer-in-0:
+          destination: first-stream
+          content-type: text/plain
+          group: first-group
+
+---
+spring:
+  config:
+    activate:
+      on-profile: rabbitmq
+  cloud:
+    stream:
+      binders:
+        default:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: ${RABBITMQ_HOST:localhost}
+                port: 5672
+                username: admin
+                password: passw0rd
+
+---
+spring:
+  config:
+    activate:
+      on-profile: activemq
+  cloud:
+    stream:
+      binders:
+        default:
+          type: jms
+          environment:
+            spring:
+              activemq:
+                broker-url: tcp://${ACTIVEMQ_HOST:localhost}:61616
+                user: admin
+                password: passw0rd

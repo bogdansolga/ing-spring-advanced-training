@@ -10,8 +10,14 @@
     </parent>
 
     <artifactId>03-spring-cloud-stream</artifactId>
+    <packaging>pom</packaging>
 
-    <dependencies>
+    <name>Spring Cloud Stream integration examples</name>
+    <description>The Spring Cloud Stream integration examples</description>
 
-    </dependencies>
+    <modules>
+        <module>simple-stream-publisher</module>
+        <module>simple-stream-subscriber</module>
+    </modules>
+
 </project>
