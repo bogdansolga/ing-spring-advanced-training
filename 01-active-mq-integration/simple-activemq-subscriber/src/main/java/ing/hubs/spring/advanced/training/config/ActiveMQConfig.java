@@ -1,26 +1,16 @@
 package ing.hubs.spring.advanced.training.config;
 
-import org.springframework.amqp.core.*;
+import jakarta.jms.Queue;
+import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.annotation.EnableJms;
 
 @Configuration
+@EnableJms
 public class ActiveMQConfig {
     @Bean
     public Queue firstQueue() {
-        return new Queue("first-queue", true);
-    }
-
-    @Bean
-    public Exchange firstExchange() {
-        return new DirectExchange("first-exchange");
-    }
-
-    @Bean
-    public Binding binding(Queue queue, Exchange exchange) {
-        return BindingBuilder.bind(queue)
-                             .to(exchange)
-                             .with("first-routing-key")
-                             .noargs();
+        return new ActiveMQQueue("first-queue");
     }
 }

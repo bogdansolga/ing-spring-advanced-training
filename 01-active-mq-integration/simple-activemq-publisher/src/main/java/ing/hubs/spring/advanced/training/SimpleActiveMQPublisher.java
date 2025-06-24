@@ -1,12 +1,12 @@
 package ing.hubs.spring.advanced.training;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jms.core.JmsTemplate;
 
 @SpringBootApplication
 public class SimpleActiveMQPublisher {
@@ -19,10 +19,10 @@ public class SimpleActiveMQPublisher {
 	}
 
 	@Bean
-	public ApplicationRunner runner(RabbitTemplate rabbitTemplate) {
+	public ApplicationRunner runner(JmsTemplate jmsTemplate) {
 		return args -> {
-			rabbitTemplate.convertAndSend("first-exchange", "first-routing-key", "Our first message");
-			System.out.println("Successfully sent a message on the 'first-exchange' exchange");
+			jmsTemplate.convertAndSend("first-queue", "Our first message");
+			System.out.println("Successfully sent a message to the 'first-queue' queue");
 		};
 	}
 }
