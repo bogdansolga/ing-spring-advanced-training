@@ -23,6 +23,7 @@ spring:
       on-profile: rabbitmq
   cloud:
     stream:
+      default-binder: rabbit
       binders:
         default:
           type: rabbit

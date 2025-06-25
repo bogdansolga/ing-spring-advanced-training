@@ -24,10 +24,9 @@ spring:
           destination: order_created
         chargeOrderProducer-out-0:
           destination: charge_order
-      kafka:
+      rabbit:
         binder:
-          auto-create-topics: true
-          brokers: localhost:9092
+          admin-addresses: localhost:5671
 
   jackson:
     serialization:
