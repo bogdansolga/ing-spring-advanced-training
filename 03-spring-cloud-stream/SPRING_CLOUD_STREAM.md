@@ -15,10 +15,11 @@ Spring Cloud Stream provides a framework for building message-driven microservic
 
 ```
 03-spring-cloud-stream/
-├── simple-stream-publisher/     # Message producer application
-├── simple-stream-subscriber/    # Message consumer application
-├── billing-service/            # Complex microservice example (legacy)
-├── order-service/              # Complex microservice example (legacy)
+├── simple-stream-publisher/    # Message producer application
+├── simple-stream-subscriber/   # Message consumer application
+├── common-support/             # Common support project
+├── billing-service/            # Complex microservice example
+├── order-service/              # Complex microservice example
 └── pom.xml                     # Module configuration
 ```
 

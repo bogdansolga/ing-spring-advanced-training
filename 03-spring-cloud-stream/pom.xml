@@ -12,12 +12,16 @@
     <artifactId>03-spring-cloud-stream</artifactId>
     <packaging>pom</packaging>
 
-    <name>Spring Cloud Stream integration examples</name>
+    <name>[03] Spring Cloud Stream integration examples</name>
     <description>The Spring Cloud Stream integration examples</description>
 
     <modules>
         <module>simple-stream-publisher</module>
         <module>simple-stream-subscriber</module>
+
+        <module>common-support</module>
+        <module>billing-service</module>
+        <module>order-service</module>
     </modules>
 
 </project>

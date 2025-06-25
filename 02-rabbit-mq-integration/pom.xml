@@ -10,28 +10,14 @@
     </parent>
 
     <artifactId>02-rabbit-mq-integration</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-	<name>RabbitMQ integration examples</name>
-	<description>The RabbitMQ integration examples</description>
+    <name>[02] RabbitMQ integration examples</name>
+    <description>The RabbitMQ integration examples</description>
 
-	<modules>
+	  <modules>
         <module>simple-rabbitmq-publisher</module>
         <module>simple-rabbitmq-subscriber</module>
-	</modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-            <version>${spring-amqp.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-    </dependencies>
+	  </modules>
 </project>

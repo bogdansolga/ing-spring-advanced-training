@@ -13,7 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>ActiveMQ integration examples</name>
+    <name>[01] ActiveMQ integration examples</name>
     <description>The ActiveMQ integration examples</description>
 
     <modules>
