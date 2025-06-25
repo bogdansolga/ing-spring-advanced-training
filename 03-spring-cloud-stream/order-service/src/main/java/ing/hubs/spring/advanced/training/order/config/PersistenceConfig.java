@@ -6,6 +6,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("net.safedata.microservices.training.order.domain.repository")
+@EnableJpaRepositories("ing.hubs.spring.advanced.training.order.domain.repository")
 public class PersistenceConfig {
 }
