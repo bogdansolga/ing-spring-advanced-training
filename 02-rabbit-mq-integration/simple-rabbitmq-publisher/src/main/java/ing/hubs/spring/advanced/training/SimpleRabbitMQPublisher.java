@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SimplePublisher {
+public class SimpleRabbitMQPublisher {
 
 	public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(SimplePublisher.class);
+		SpringApplication springApplication = new SpringApplication(SimpleRabbitMQPublisher.class);
 		springApplication.setWebApplicationType(WebApplicationType.NONE);
 		springApplication.setBannerMode(Banner.Mode.OFF);
 		springApplication.run(args);
