@@ -6,8 +6,6 @@ spring:
     name: 'order-service'
 
   cloud:
-    function:
-      definition: createOrder;customerUpdated;orderCharged;orderNotCharged;orderCreatedProducer;chargeOrderProducer
     stream:
       bindings:
         createOrder-in-0:
@@ -24,9 +22,16 @@ spring:
           destination: order_created
         chargeOrderProducer-out-0:
           destination: charge_order
-      rabbit:
-        binder:
-          admin-addresses: localhost:5671
+      binders:
+        default:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: admin
+                password: passw0rd
 
   jackson:
     serialization:
