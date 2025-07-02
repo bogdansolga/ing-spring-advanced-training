@@ -15,6 +15,7 @@ spring:
         first-output:
           destination: first-stream
           content-type: text/plain
+          group: first-group
 
 ---
 spring:
@@ -23,7 +24,6 @@ spring:
       on-profile: rabbitmq
   cloud:
     stream:
-      default-binder: rabbit
       binders:
         default:
           type: rabbit

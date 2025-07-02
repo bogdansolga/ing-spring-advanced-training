@@ -15,6 +15,7 @@ public class SimpleStreamPublisher {
         SpringApplication springApplication = new SpringApplication(SimpleStreamPublisher.class);
         springApplication.setWebApplicationType(WebApplicationType.NONE);
         springApplication.setBannerMode(Banner.Mode.OFF);
+        springApplication.setAdditionalProfiles("rabbitmq");
         springApplication.run(args);
     }
 

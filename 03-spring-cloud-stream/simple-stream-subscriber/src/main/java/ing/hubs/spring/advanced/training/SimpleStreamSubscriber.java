@@ -1,6 +1,8 @@
 package ing.hubs.spring.advanced.training;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -10,7 +12,10 @@ import java.util.function.Consumer;
 public class SimpleStreamSubscriber {
 
     public static void main(String[] args) {
-        SpringApplication.run(SimpleStreamSubscriber.class, args);
+        SpringApplication springApplication = new SpringApplication(SimpleStreamSubscriber.class);
+        springApplication.setBannerMode(Banner.Mode.OFF);
+        springApplication.setAdditionalProfiles("rabbitmq");
+        springApplication.run(args);
     }
 
     @Bean
