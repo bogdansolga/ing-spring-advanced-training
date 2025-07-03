@@ -1,17 +1,29 @@
 server:
-  port: 8082
+  port: 8084
 
 spring:
   application:
-    name: 'billing-service'
+    name: 'customer-service'
 
   cloud:
+    function:
+      definition: orderCreated;orderCharged;orderNotCharged;orderShipped;customerCreatedProducer;customerUpdatedProducer;processOrderProducer
     stream:
       bindings:
-        chargeOrder-in-0:
-          destination: charge_order
-        orderChargedProducer-out-0:
+        orderCreated-in-0:
+          destination: order_created
+        orderCharged-in-0:
           destination: order_charged
+        orderNotCharged-in-0:
+          destination: order_not_charged
+        orderShipped-in-0:
+          destination: order_shipped
+        customerCreatedProducer-out-0:
+          destination: customer_created
+        customerUpdatedProducer-out-0:
+          destination: customer_updated
+        processOrderProducer-out-0:
+          destination: process_order
       default-binder: rabbit
       binders:
         default:

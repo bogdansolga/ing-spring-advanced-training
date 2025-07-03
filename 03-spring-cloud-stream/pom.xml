@@ -20,6 +20,7 @@
         <module>simple-stream-subscriber</module>
 
         <module>common-support</module>
+        <module>customer-service</module>
         <module>billing-service</module>
         <module>order-service</module>
     </modules>
