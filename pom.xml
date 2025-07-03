@@ -33,6 +33,7 @@
     <module>04-spring-security</module>
     <module>05-spring-cloud-gateway</module>
     <module>06-spring-boot-actuator</module>
+    <module>07-spring-cloud-examples</module>
   </modules>
 
 	<dependencyManagement>
