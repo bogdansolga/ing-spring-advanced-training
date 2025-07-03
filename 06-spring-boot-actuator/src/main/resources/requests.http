@@ -13,6 +13,9 @@ GET {{host}}:{{port}}//{{actuatorURI}}/info
 ### get the app metrics
 GET {{host}}:{{port}}//{{actuatorURI}}/metrics
 
+### get a certain metric
+GET {{host}}:{{port}}//{{actuatorURI}}/metrics/jvm.memory.used
+
 ### get the app threaddump
 GET {{host}}:{{port}}//{{actuatorURI}}/threaddump
 
