@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+    org:
+      apache: warn
+      springframework: warn
+
+  pattern:
+    console: '%clr([%thread] [%date{HH:mm:ss.SSS}]){faint} %clr(%2p) %clr(%-40.40logger{36}){cyan} %m%n%wex'
