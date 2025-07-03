@@ -2,6 +2,7 @@ package ing.hubs.spring.advanced.training.security.controller;
 
 import ing.hubs.spring.advanced.training.security.config.HasManagerRole;
 import ing.hubs.spring.advanced.training.security.config.Roles;
+import ing.hubs.spring.advanced.training.security.dto.MessageDTO;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PreFilter;
@@ -51,6 +52,12 @@ public class ProductController {
         final String username = userDetails.getUsername();
         System.out.println("The current user is '" + username + "', has the authorities '" + Collections.singletonList(userDetails.getAuthorities()) + "'");
         return new Product(20, "Tablet");
+    }
+
+    @PostMapping("/product")
+    public MessageDTO createProduct(@RequestBody Product product) {
+        //TODO implement the product creation logic + the PreAuthorize for the ADMIN role
+        return new MessageDTO("The product '" + product.getName() + "' has been created");
     }
 
     // dynamically retrieving the authenticated user details
