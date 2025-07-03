@@ -6,6 +6,8 @@ spring:
     name: 'billing-service'
 
   cloud:
+    function:
+      definition: chargeOrder
     stream:
       bindings:
         chargeOrder-in-0:

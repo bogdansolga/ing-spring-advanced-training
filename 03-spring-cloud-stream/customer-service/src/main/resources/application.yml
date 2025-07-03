@@ -6,6 +6,8 @@ spring:
     name: 'customer-service'
 
   cloud:
+    function:
+      definition: orderCreated
     stream:
       bindings:
         orderCreated-in-0:

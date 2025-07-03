@@ -6,6 +6,9 @@ spring:
     name: 'order-service'
 
   cloud:
+    function:
+      definition: createOrder
+      #,customerUpdated,orderCharged,orderNotCharged,orderShipped
     stream:
       bindings:
         createOrder-in-0:
