@@ -1,0 +1,8 @@
+### read a product
+GET http://localhost:8080/product
+
+---
+
+### save a product
+POST http://localhost:8080/product
+Content-Type: application/json
