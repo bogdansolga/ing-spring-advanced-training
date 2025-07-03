@@ -2,6 +2,7 @@ package ing.hubs.spring.advanced.training.order.inbound.adapter;
 
 import ing.hubs.spring.advanced.training.marker.adapter.InboundAdapter;
 import ing.hubs.spring.advanced.training.message.command.order.CreateOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
 import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
 import ing.hubs.spring.advanced.training.message.event.order.OrderChargedEvent;
 import ing.hubs.spring.advanced.training.message.event.order.OrderNotChargedEvent;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 @Component
 public class MessagingInboundAdapter implements InboundAdapter {
@@ -55,6 +57,16 @@ public class MessagingInboundAdapter implements InboundAdapter {
                     orderChargedEvent.getName(), orderChargedEvent.getOrderId(), orderChargedEvent.getCustomerId());
 
             messagingInboundPort.handleOrderCharged(orderChargedEvent);
+        };
+    }
+
+    @Bean
+    public Function<CustomerCreatedEvent, CustomerUpdatedEvent> customerUpdatedAsFunction() {
+        return customerUpdatedEvent -> {
+            LOGGER.debug("Received a '{}' event, the ID of the updated customer is {}",
+                    customerUpdatedEvent.getName(), customerUpdatedEvent.getCustomerId());
+
+            return messagingInboundPort.handleCustomerUpdated(customerUpdatedEvent);
         };
     }
 

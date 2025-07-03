@@ -4,6 +4,7 @@ import ing.hubs.spring.advanced.training.dto.order.OrderDTO;
 import ing.hubs.spring.advanced.training.message.command.order.ChargeOrderCommand;
 import ing.hubs.spring.advanced.training.message.command.order.ShipOrderCommand;
 import ing.hubs.spring.advanced.training.message.command.order.CreateOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
 import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
 import ing.hubs.spring.advanced.training.message.event.order.OrderChargedEvent;
 import ing.hubs.spring.advanced.training.message.event.order.OrderCreatedEvent;
@@ -115,6 +116,11 @@ public class OrderService implements RestInboundPort, MessagingInboundPort {
         LOGGER.info("Updating the orders for the customer with the ID {}...", customerUpdatedEvent.getCustomerId());
 
         // TODO insert magic here
+    }
+
+    @Override
+    public CustomerUpdatedEvent handleCustomerUpdated(CustomerCreatedEvent customerCreatedEvent) {
+        return new CustomerUpdatedEvent(getNextMessageId(), getNextEventId(), customerCreatedEvent.getCustomerId());
     }
 
     @Transactional

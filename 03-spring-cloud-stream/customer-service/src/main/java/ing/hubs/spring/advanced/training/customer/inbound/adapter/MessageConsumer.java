@@ -1,11 +1,11 @@
 package ing.hubs.spring.advanced.training.customer.inbound.adapter;
 
 import ing.hubs.spring.advanced.training.customer.inbound.port.CustomerService;
-import net.safedata.microservices.training.marker.adapter.InboundAdapter;
-import net.safedata.microservices.training.message.event.order.OrderChargedEvent;
-import net.safedata.microservices.training.message.event.order.OrderCreatedEvent;
-import net.safedata.microservices.training.message.event.order.OrderNotChargedEvent;
-import net.safedata.microservices.training.message.event.order.OrderShippedEvent;
+import ing.hubs.spring.advanced.training.marker.adapter.InboundAdapter;
+import ing.hubs.spring.advanced.training.message.event.order.OrderChargedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderNotChargedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderShippedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

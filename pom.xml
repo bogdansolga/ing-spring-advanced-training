@@ -94,6 +94,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
+        <configuration>
+          <docker>
+            <imageName>ing.hubs/spring.advanced.training</imageName>
+          </docker>
+        </configuration>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+              <goal>build-image-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
 			</plugin>
 		</plugins>
 	</build>

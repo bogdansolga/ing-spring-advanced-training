@@ -12,7 +12,6 @@ spring:
           destination: charge_order
         orderChargedProducer-out-0:
           destination: order_charged
-      default-binder: rabbit
       binders:
         default:
           type: rabbit

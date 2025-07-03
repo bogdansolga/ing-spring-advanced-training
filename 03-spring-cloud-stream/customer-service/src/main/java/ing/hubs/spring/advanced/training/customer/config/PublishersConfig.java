@@ -1,10 +1,9 @@
 package ing.hubs.spring.advanced.training.customer.config;
 
-import net.safedata.microservices.training.helper.MessageCreator;
-import net.safedata.microservices.training.message.command.order.ChargeOrderCommand;
-import net.safedata.microservices.training.message.command.order.ProcessOrderCommand;
-import net.safedata.microservices.training.message.event.customer.CustomerCreatedEvent;
-import net.safedata.microservices.training.message.event.customer.CustomerUpdatedEvent;
+import ing.hubs.spring.advanced.training.helper.MessageCreator;
+import ing.hubs.spring.advanced.training.message.command.order.ProcessOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;

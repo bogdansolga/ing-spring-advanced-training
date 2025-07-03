@@ -1,12 +1,12 @@
 package ing.hubs.spring.advanced.training.customer.outbound.adapter;
 
 import ing.hubs.spring.advanced.training.customer.outbound.port.MessagingOutboundPort;
-import net.safedata.microservices.training.helper.MessagePublisher;
-import net.safedata.microservices.training.message.OutputBindings;
-import net.safedata.microservices.training.message.command.order.ProcessOrderCommand;
-import net.safedata.microservices.training.message.event.customer.CustomerCreatedEvent;
-import net.safedata.microservices.training.message.event.customer.CustomerUpdatedEvent;
-import net.safedata.microservices.training.marker.adapter.OutboundAdapter;
+import ing.hubs.spring.advanced.training.helper.MessagePublisher;
+import ing.hubs.spring.advanced.training.message.OutputBindings;
+import ing.hubs.spring.advanced.training.message.command.order.ProcessOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
+import ing.hubs.spring.advanced.training.marker.adapter.OutboundAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

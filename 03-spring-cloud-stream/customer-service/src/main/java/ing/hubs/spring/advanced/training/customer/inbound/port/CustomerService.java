@@ -1,15 +1,15 @@
 package ing.hubs.spring.advanced.training.customer.inbound.port;
 
 import ing.hubs.spring.advanced.training.customer.outbound.port.MessagingOutboundPort;
-import net.safedata.microservices.training.dto.customer.CustomerDTO;
-import net.safedata.microservices.training.marker.port.InboundPort;
-import net.safedata.microservices.training.message.command.order.ProcessOrderCommand;
-import net.safedata.microservices.training.message.event.customer.CustomerCreatedEvent;
-import net.safedata.microservices.training.message.event.customer.CustomerUpdatedEvent;
-import net.safedata.microservices.training.message.event.order.OrderChargedEvent;
-import net.safedata.microservices.training.message.event.order.OrderCreatedEvent;
-import net.safedata.microservices.training.message.event.order.OrderNotChargedEvent;
-import net.safedata.microservices.training.message.event.order.OrderShippedEvent;
+import ing.hubs.spring.advanced.training.dto.customer.CustomerDTO;
+import ing.hubs.spring.advanced.training.marker.port.InboundPort;
+import ing.hubs.spring.advanced.training.message.command.order.ProcessOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderChargedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderNotChargedEvent;
+import ing.hubs.spring.advanced.training.message.event.order.OrderShippedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

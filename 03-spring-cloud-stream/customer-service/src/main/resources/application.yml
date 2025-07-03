@@ -6,8 +6,6 @@ spring:
     name: 'customer-service'
 
   cloud:
-    function:
-      definition: orderCreated;orderCharged;orderNotCharged;orderShipped;customerCreatedProducer;customerUpdatedProducer;processOrderProducer
     stream:
       bindings:
         orderCreated-in-0:
@@ -24,7 +22,6 @@ spring:
           destination: customer_updated
         processOrderProducer-out-0:
           destination: process_order
-      default-binder: rabbit
       binders:
         default:
           type: rabbit

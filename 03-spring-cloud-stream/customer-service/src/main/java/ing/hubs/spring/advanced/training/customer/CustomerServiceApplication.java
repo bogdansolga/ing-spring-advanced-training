@@ -1,6 +1,6 @@
 package ing.hubs.spring.advanced.training.customer;
 
-import net.safedata.microservices.training.config.HelperBeansConfig;
+import ing.hubs.spring.advanced.training.config.HelperBeansConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;

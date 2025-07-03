@@ -1,9 +1,9 @@
 package ing.hubs.spring.advanced.training.customer.outbound.port;
 
-import net.safedata.microservices.training.marker.port.OutboundPort;
-import net.safedata.microservices.training.message.command.order.ProcessOrderCommand;
-import net.safedata.microservices.training.message.event.customer.CustomerCreatedEvent;
-import net.safedata.microservices.training.message.event.customer.CustomerUpdatedEvent;
+import ing.hubs.spring.advanced.training.marker.port.OutboundPort;
+import ing.hubs.spring.advanced.training.message.command.order.ProcessOrderCommand;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerCreatedEvent;
+import ing.hubs.spring.advanced.training.message.event.customer.CustomerUpdatedEvent;
 import org.springframework.stereotype.Component;
 
 @Component

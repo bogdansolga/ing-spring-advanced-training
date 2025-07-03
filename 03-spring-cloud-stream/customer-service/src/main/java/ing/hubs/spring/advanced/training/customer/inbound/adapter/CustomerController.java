@@ -1,8 +1,8 @@
 package ing.hubs.spring.advanced.training.customer.inbound.adapter;
 
-import net.safedata.microservices.training.dto.customer.CustomerDTO;
+import ing.hubs.spring.advanced.training.dto.customer.CustomerDTO;
 import ing.hubs.spring.advanced.training.customer.inbound.port.CustomerService;
-import net.safedata.microservices.training.marker.adapter.InboundAdapter;
+import ing.hubs.spring.advanced.training.marker.adapter.InboundAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
