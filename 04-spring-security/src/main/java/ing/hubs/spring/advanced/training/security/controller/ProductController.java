@@ -15,6 +15,7 @@ import ing.hubs.spring.advanced.training.security.model.Product;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.util.Collections;
 import java.util.List;
 
 import static ing.hubs.spring.advanced.training.security.config.Roles.*;
@@ -45,12 +46,10 @@ public class ProductController {
         // using the filtered products, afterwards
     }
     
-    @GetMapping(
-    		path = "/product/{id}"
-	)
+    @GetMapping("/product/{id}")
     public Product getProduct(@PathVariable final int id, final @AuthenticationPrincipal UserDetails userDetails) {
         final String username = userDetails.getUsername();
-        System.out.println("The current user is '" + username + "'");
+        System.out.println("The current user is '" + username + "', has the authorities '" + Collections.singletonList(userDetails.getAuthorities()) + "'");
         return new Product(20, "Tablet");
     }
 

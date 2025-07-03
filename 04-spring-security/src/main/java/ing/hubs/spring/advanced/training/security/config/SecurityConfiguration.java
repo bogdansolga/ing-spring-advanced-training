@@ -1,5 +1,6 @@
 package ing.hubs.spring.advanced.training.security.config;
 
+import ing.hubs.spring.advanced.training.security.filter.RateLimitingFilter;
 import ing.hubs.spring.advanced.training.security.handler.FailedAuthHandler;
 import ing.hubs.spring.advanced.training.security.handler.PostLogoutHandler;
 import ing.hubs.spring.advanced.training.security.handler.SuccessfulAuthHandler;
@@ -7,7 +8,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -19,14 +22,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationFilter;
 
 import static ing.hubs.spring.advanced.training.security.controller.ProductController.API_PREFIX;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 public class SecurityConfiguration {
 
     @Bean
@@ -42,7 +46,9 @@ public class SecurityConfiguration {
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers(HttpMethod.POST, API_PREFIX +"/auth/**").permitAll()
                     .requestMatchers(HttpMethod.POST, API_PREFIX +"/login", "/register").permitAll()
+                    .requestMatchers(HttpMethod.GET, API_PREFIX +"/product").authenticated()
                     .anyRequest().authenticated())
+            .addFilterBefore(new RateLimitingFilter(), AuthenticationFilter.class)
             .httpBasic(withDefaults());
         return http.build();
     }
@@ -56,13 +62,10 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http, UserDetailsManager userDetailsManager)
-            throws Exception {
-        return http.getSharedObject(AuthenticationManagerBuilder.class)
-                   .userDetailsService(userDetailsManager)
-                   .passwordEncoder(passwordEncoder())
-                   .and()
-                   .build();
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService) {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailsService);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return new ProviderManager(authProvider);
     }
 
     @Bean
@@ -95,7 +98,7 @@ public class SecurityConfiguration {
         UserDetails admin = User.builder()
                                 .username("admin")
                                 .password("$2a$10$D5XLRx5LcWBmaMJhL76sLeVkqVHxtQAYdmOGjlhxptlC85KW6smOq") // password
-                                .roles("USER", "ADMIN")
+                                .roles("ADMIN") //"USER",
                                 .build();
         return new InMemoryUserDetailsManager(user, admin);
     }
